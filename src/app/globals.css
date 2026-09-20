@@ -1,26 +1,484 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------------------
+   Tokens de marca — Farmácia Águia de Ouro
+   Navy vem do kit da marca. Dourado e creme sao propostas [CONFIRMAR].
+   --------------------------------------------------------------------------- */
+@theme {
+  --font-sans: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode",
+    "Lucida Sans", Tahoma, sans-serif;
+
+  /* Navy — cor estrutural dominante.
+     #04063e e o valor amostrado do logo; o CSS do site atual usa #04063d, um
+     ponto de diferenca. Os tons acima sao clareamentos, nao amostras. */
+  --color-navy-900: #04063e;
+  --color-navy-700: #161c5e;
+  --color-navy-600: #232a78;
+  --color-navy-050: #eeeff6;
+
+  /* Dourado.
+     Havia dois valores em producao: #bfa364 no logo e #977c3e no CSS do site
+     antigo. A escolha aqui e o dourado DO LOGO — um logo e desenhado, um CSS
+     se acumula, entao a marca e a fonte da verdade. Nenhum dos dois, porem,
+     serve para tudo: #bfa364 como texto sobre branco da 2,43:1, abaixo do
+     minimo de 3,0 para texto grande.
+     Dai os dois passos abaixo, mesmo matiz (41,5 graus), so claridade
+     diferente. Nao sao duas cores de marca em conflito: e uma rampa.
+       gold-400 -> preenchimentos e texto SOBRE NAVY  (7,85:1)
+       gold-600 -> texto SOBRE CLARO e bordas         (4,68:1 no branco)
+     Para voltar a um unico valor, basta igualar os dois a #977c3e: passa em
+     tudo, mas fica visivelmente mais escuro que o logo ao lado dele na barra. */
+  --color-gold-400: #bfa364;
+  --color-gold-600: #8a7138;
+
+  /* Superficies.
+     O CSS do site usa #f0efed como claro, mas ele e indistinguivel do
+     navy-050 (#eeeff6): 1,00 de contraste entre os dois. Como as secoes
+     alternam creme / navy-050 / branco, adotar o #f0efed colapsaria duas
+     delas na mesma cor. Mantido o #faf7f0, que fica no meio do caminho
+     entre o branco e o navy-050 (1,07 para cada lado). */
+  --color-cream: #faf7f0;
+  --color-white: #ffffff;
+
+  /* Bordas */
+  --color-border-subtle: #e3e1da;
+  --color-border-strong: #232a78;
+
+  /* Sombras — sempre com tinta navy, nunca cinza ou preto */
+  --shadow-sm: 0 1px 3px rgba(4, 6, 62, 0.08);
+  --shadow-md: 0 4px 12px rgba(4, 6, 62, 0.1);
+  --shadow-lg: 0 10px 28px rgba(4, 6, 62, 0.12);
+
+  /* Ritmo de 4px — Tailwind ja usa 4px como unidade base de spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+
+  /* Raios */
+  --radius-button: 8px;
+  --radius-card: 16px;
+  --radius-pill: 999px;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --shadow-focus-ring: 0 0 0 3px rgba(4, 6, 62, 0.35);
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 320ms;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-reveal: 640ms;
+  /* 0.72 deixa o video aparecer. O eyebrow do hero e branco e nao dourado
+     porque, com o filtro nesta opacidade, qualquer um dos dourados da marca
+     fica abaixo de 4,5:1 sobre os frames claros do video. Os numeros exatos
+     estao medidos em docs/PROJETO.md, contra o pixel mais claro do video real. */
+  --hero-overlay: 0.72;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background-color: var(--color-white);
+    color: var(--color-navy-900);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-weight: 700;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Foco sempre visivel. Nunca remover. */
+  :where(a, button, input, textarea, select, [tabindex]):focus-visible {
+    outline: 3px solid var(--color-navy-600);
+    outline-offset: 2px;
+  }
+
+  /* Sobre superficie navy o anel navy some — inverte para branco. */
+  .surface-dark :where(a, button, [tabindex]):focus-visible {
+    outline-color: var(--color-white);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 20px;
+  }
+
+  @media (min-width: 768px) {
+    .container-page {
+      padding-inline: 32px;
+    }
+  }
+
+  /* Texto corrido nao passa de ~70 caracteres por linha. */
+  .measure {
+    max-width: 60ch;
+  }
+
+  /* Escala tipografica — hierarquia por tamanho e cor, nunca por peso. */
+  .t-h1 {
+    font-size: clamp(2.25rem, 1.2rem + 3.6vw, 3.5rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+  .t-h2 {
+    font-size: clamp(1.75rem, 1.2rem + 2vw, 2.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .t-h3 {
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+  .t-lead {
+    font-size: clamp(1.0625rem, 1rem + 0.4vw, 1.25rem);
+    line-height: 1.6;
+  }
+  .t-body {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+  .t-small {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+  }
+  .t-closing {
+    font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.375rem);
+    line-height: 1.45;
+  }
+  .t-numeral {
+    font-size: 3rem;
+    line-height: 1;
+    font-weight: 700;
+    color: var(--color-gold-600);
+  }
+
+  /* Maximo de dois na pagina inteira. */
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--color-gold-600);
+  }
+
+  /* Sobre o video, com o filtro a 72%, o dourado ficaria em 2,8:1. */
+  .eyebrow-light {
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 14px 26px;
+    border-radius: var(--radius-button);
+    border: 1px solid transparent;
+    font-weight: 700;
+    font-size: 1.0625rem;
+    line-height: 1.2;
+    text-align: center;
+    transition:
+      box-shadow var(--duration-base) var(--ease),
+      transform var(--duration-base) var(--ease),
+      background-color var(--duration-base) var(--ease),
+      border-color var(--duration-base) var(--ease);
+  }
+
+  /* Um unico botao dourado por tela. */
+  .btn-gold {
+    background-color: var(--color-gold-400);
+    border-color: var(--color-gold-600);
+    color: var(--color-navy-900);
+    box-shadow: var(--shadow-sm);
+  }
+  .btn-gold:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-1px);
+  }
+  .btn-gold:active {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(0);
+  }
+
+  .btn-ghost-light {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.55);
+    color: var(--color-white);
+  }
+  .btn-ghost-light:hover {
+    border-color: var(--color-white);
+    background-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-1px);
+  }
+  .btn-ghost-light:active {
+    transform: translateY(0);
+  }
+
+  .btn-ghost-navy {
+    background-color: var(--color-white);
+    border-color: var(--color-navy-600);
+    color: var(--color-navy-900);
+    box-shadow: var(--shadow-sm);
+  }
+  .btn-ghost-navy:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+  .btn-ghost-navy:active {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(0);
+  }
+
+  .btn-nav {
+    min-height: 44px;
+    padding: 10px 16px;
+    font-size: 0.9375rem;
+  }
+
+  @media (min-width: 640px) {
+    .btn-nav {
+      padding: 10px 20px;
+      font-size: 1rem;
+    }
+  }
+}
+
+/* Preferencia do sistema respeitada: video pausado no poster, transicoes zeradas. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Movimento
+   As regras de revelacao so valem quando a classe .js existe no <html>, posta
+   por um script inline no layout. Sem JavaScript nada e escondido, e o script
+   se auto-desarma em 5s caso a hidratacao nunca aconteca.
+   --------------------------------------------------------------------------- */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity var(--duration-reveal) var(--ease-out),
+    transform var(--duration-reveal) var(--ease-out);
+}
+
+.js [data-reveal="left"] {
+  transform: translateX(-20px);
+}
+
+.js [data-reveal="scale"] {
+  transform: translateY(16px) scale(0.97);
+}
+
+.js [data-reveal][data-revealed="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+/* Entrada do hero: roda no load, sem esperar scroll. Nao toca no poster, que
+   e o elemento de LCP. */
+.js .hero-enter {
+  opacity: 0;
+  animation: enter-up 700ms var(--ease-out) forwards;
+}
+
+@keyframes enter-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Barra fixa: solida por padrao (correto em toda pagina de fundo claro —
+   Servicos, Quem Somos, Contato, legais). So fica transparente-sobre-o-hero
+   quando a propria pagina TEM o hero escuro: #hero-video (Hero.tsx) so
+   existe na home, entao :has() liga a transparencia sem precisar de JS nem
+   de saber "estou na home" em lugar nenhum — zero flash, zero logica extra. */
+.nav-bar {
+  background-color: var(--color-navy-900);
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color var(--duration-slow) var(--ease),
+    box-shadow var(--duration-slow) var(--ease),
+    border-color var(--duration-slow) var(--ease);
+}
+
+.js body:has(#hero-video) .nav-bar {
+  background-color: transparent;
+}
+
+.js body:has(#hero-video) .nav-bar[data-scrolled="true"] {
+  background-color: var(--color-navy-900);
+}
+
+.nav-bar[data-scrolled="true"] {
+  border-bottom-color: rgba(191, 163, 100, 0.5);
+  box-shadow: 0 6px 24px rgba(4, 6, 62, 0.45);
+}
+
+/* Fotos: a moldura sobe, a imagem aproxima de leve. */
+.photo-frame {
+  transition:
+    box-shadow var(--duration-base) var(--ease),
+    transform var(--duration-base) var(--ease);
+}
+
+.photo-frame:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.photo-frame img {
+  transition: transform var(--duration-slow) var(--ease);
+}
+
+.photo-frame:hover img {
+  transform: scale(1.04);
+}
+
+/* Passos do "como pedir": o numero reage ao ponteiro sobre o item inteiro. */
+.step {
+  transition: transform var(--duration-base) var(--ease);
+}
+
+.step .t-numeral {
+  transition:
+    color var(--duration-base) var(--ease),
+    transform var(--duration-base) var(--ease);
+}
+
+.step:hover .t-numeral {
+  color: var(--color-navy-700);
+  transform: translateY(-2px);
+}
+
+/* Botao flutuante do WhatsApp */
+.fab {
+  animation: fab-in 480ms var(--ease-out) 900ms both;
+  transition:
+    transform var(--duration-base) var(--ease),
+    box-shadow var(--duration-base) var(--ease);
+}
+
+.fab:hover {
+  transform: scale(1.06);
+  box-shadow: 0 14px 34px rgba(4, 6, 62, 0.34);
+}
+
+.fab:active {
+  transform: scale(1);
+}
+
+@keyframes fab-in {
+  from {
+    opacity: 0;
+    transform: scale(0.7) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Ondas que pulsam devagar, sem piscar — na mesma cor do botão. */
+.fab-ring {
+  animation: fab-pulse 3.2s var(--ease-out) 1.6s infinite;
+}
+
+@keyframes fab-pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(1.65);
+  }
+}
+
+.fab-bubble {
+  animation: bubble-in 420ms var(--ease-out) 1500ms both;
+}
+
+@keyframes bubble-in {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Troca de mensagem a cada 5s: o span e remontado e a animacao reexecuta. */
+.fab-bubble-text {
+  animation: bubble-swap 420ms var(--ease-out) both;
+}
+
+@keyframes bubble-swap {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Com movimento reduzido, tudo aparece pronto e nada fica em loop. */
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal],
+  .js .hero-enter {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .fab,
+  .fab-ring,
+  .fab-bubble,
+  .fab-bubble-text {
+    animation: none !important;
+  }
+
+  .fab-ring {
+    display: none;
+  }
 }

@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# build do GitHub Pages: rotas /api guardadas aqui durante o build
+/.pages-stash/
