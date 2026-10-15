@@ -81,11 +81,11 @@ export default function Footer() {
               </span>
               <div>
                 <p className="t-body font-bold">
-                  Acompanhe o dia a dia da farmácia
+                  Estamos no Instagram
                 </p>
                 <p className="t-small text-white/70">
-                  Bastidores do laboratório, novidades e cuidados com a pele no
-                  nosso Instagram.
+                  Postamos o dia a dia do laboratório, novidades e dicas de
+                  cuidados com a pele.
                 </p>
               </div>
             </div>

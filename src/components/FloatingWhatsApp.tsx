@@ -20,7 +20,7 @@ export default function FloatingWhatsApp() {
           data-fab-message
           className="fab-bubble-text t-small block font-bold"
         >
-          Faça já seu orçamento
+          Peça seu orçamento
         </span>
       </div>
 

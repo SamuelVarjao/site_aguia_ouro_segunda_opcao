@@ -48,7 +48,7 @@ export default function Hero() {
               Farmácia de manipulação
             </span>
             <span className="mt-5 block">
-              Sua fórmula é preparada aqui, uma de cada vez.
+              Sua receita manipulada aqui, no nosso laboratório.
             </span>
           </h1>
 
@@ -56,8 +56,8 @@ export default function Hero() {
             className="t-lead measure hero-enter mt-6 text-white/90"
             style={{ animationDelay: "120ms" }}
           >
-            Desde 1988, em São Miguel Paulista. Cada receita passa pela
-            conferência de um farmacêutico antes de chegar ao laboratório.
+            Estamos em São Miguel Paulista desde 1988. Antes de ir para o
+            laboratório, toda receita é conferida por um farmacêutico.
           </p>
 
           <div
@@ -86,7 +86,7 @@ export default function Hero() {
             className="t-small hero-enter mt-8 text-white/80"
             style={{ animationDelay: "340ms" }}
           >
-            Av. Marechal Tito, 677 — São Miguel Paulista · Seg a sex, 8h30 às
+            Av. Marechal Tito, 677, São Miguel Paulista · Seg a sex, 8h30 às
             17h30 · Sáb, 9h às 13h
           </p>
         </div>

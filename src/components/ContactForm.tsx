@@ -66,7 +66,7 @@ export default function ContactForm() {
         role="status"
         className="t-body rounded-card border border-border-subtle bg-navy-050 p-6 text-navy-900"
       >
-        Mensagem enviada! A equipe responde no horário de atendimento.
+        Mensagem enviada. Respondemos no horário de atendimento.
       </p>
     );
   }

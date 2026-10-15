@@ -7,7 +7,7 @@ import { BUSINESS, SITE_URL, WHATSAPP_LINKS } from "@/lib/site";
 
 const TITLE = "Quem Somos | Farmácia Águia de Ouro";
 const DESCRIPTION =
-  "Farmácia de manipulação em São Miguel Paulista desde 1988. Conheça a história, a missão e a equipe por trás de cada fórmula.";
+  "Farmácia de manipulação em São Miguel Paulista desde 1988. Conheça a história da farmácia, nossas farmacêuticas e a equipe.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -32,11 +32,11 @@ const PILARES = [
   },
   {
     title: "Visão",
-    text: "Buscar constante evolução tecnológica nos processos de manipulação, para atender às demandas do crescimento científico e tecnológico do nosso tempo.",
+    text: "Acompanhar a evolução técnica e científica da manipulação e levar essas melhorias para o nosso laboratório.",
   },
   {
     title: "Política da qualidade",
-    text: "Compromisso com medicamentos manipulados confiáveis, eficazes e seguros, do recebimento da matéria-prima até a entrega da fórmula pronta.",
+    text: "Entregar medicamentos manipulados confiáveis, eficazes e seguros, com controle desde o recebimento da matéria-prima até a entrega da fórmula pronta.",
   },
 ] as const;
 
@@ -76,11 +76,11 @@ export default function QuemSomosPage() {
           <Reveal>
             <p className="eyebrow">Quem somos</p>
             <h1 className="t-h1 measure mt-5 text-navy-900">
-              Uma farmácia de bairro que virou referência em manipulação.
+              Uma farmácia de bairro, aberta em 1988.
             </h1>
             <p className="t-lead measure mt-6">
-              Desde 1988 em São Miguel Paulista, sempre com o mesmo princípio:
-              remédio bom é o que serve para uma pessoa só.
+              Há trinta e oito anos manipulamos fórmulas sob prescrição em São
+              Miguel Paulista.
             </p>
           </Reveal>
         </div>
@@ -102,19 +102,18 @@ export default function QuemSomosPage() {
             <Reveal delay={120}>
               <h2 className="t-h2 measure">Como começou</h2>
               <p className="t-body measure mt-5 text-navy-900/80">
-                A Farmácia Águia de Ouro foi fundada em fevereiro de 1988, em
-                São Miguel Paulista, por Antônio Cesar. Paranaense, ele
-                começou a trabalhar em farmácia ainda na adolescência e veio
-                para São Paulo já com experiência de balcão. Abriu a farmácia
-                aos 29 anos, com um farmacêutico como único colaborador —
-                cultivando o sonho de fazer do seu próprio jeito, com
-                qualidade e autenticidade.
+                A Farmácia Águia de Ouro foi fundada em fevereiro de 1988 por
+                Antônio Cesar. Paranaense, ele começou a trabalhar em farmácia
+                ainda adolescente e já tinha experiência de balcão quando
+                chegou a São Paulo. Abriu a própria farmácia em São Miguel
+                Paulista aos 29 anos, com um farmacêutico como único
+                funcionário. Queria fazer as coisas do jeito dele, com
+                qualidade.
               </p>
               <p className="t-body measure mt-4 text-navy-900/80">
-                Passados trinta e oito anos, a farmácia segue com o mesmo
-                sonho: manipular com excelência. O bairro é o mesmo, e boa
-                parte de quem chega hoje veio porque a mãe ou a avó já
-                comprava aqui.
+                Trinta e oito anos depois, a farmácia continua no mesmo
+                bairro. Muita gente que vem aqui hoje conheceu a Águia de Ouro
+                pela mãe ou pela avó, que já compravam com a gente.
               </p>
             </Reveal>
           </div>
@@ -143,8 +142,8 @@ export default function QuemSomosPage() {
           <Reveal>
             <h2 className="t-h2 measure">Nossas farmacêuticas</h2>
             <p className="t-lead measure mt-4">
-              Cada fórmula passa pelas mãos e pela responsabilidade técnica
-              de farmacêuticas registradas no CRF-SP.
+              As receitas são conferidas por farmacêuticas registradas no
+              CRF-SP, que respondem tecnicamente pelas fórmulas.
             </p>
           </Reveal>
 
@@ -182,8 +181,8 @@ export default function QuemSomosPage() {
           <Reveal>
             <h2 className="t-h2 measure">Equipe</h2>
             <p className="t-lead measure mt-4">
-              Além das farmacêuticas, o balcão conta com uma equipe dedicada
-              a receber cada receita com atenção.
+              É a equipe do balcão que recebe as receitas, atende na loja e
+              responde no WhatsApp.
             </p>
           </Reveal>
 
@@ -222,10 +221,10 @@ export default function QuemSomosPage() {
       <section className="bg-navy-050 py-16 md:py-24">
         <div className="container-page flex flex-col items-start gap-6">
           <Reveal>
-            <h2 className="t-h2 measure">Quer conhecer de perto?</h2>
+            <h2 className="t-h2 measure">Precisa manipular uma receita?</h2>
             <p className="t-lead measure mt-4">
-              Mande sua receita pelo WhatsApp e converse direto com a equipe
-              do balcão.
+              Mande uma foto pelo WhatsApp. Quem responde é a equipe do
+              balcão.
             </p>
             <CtaLink
               href={WHATSAPP_LINKS.quemSomos}

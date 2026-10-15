@@ -46,8 +46,8 @@ export default function ContatoPage() {
               Fale com a gente.
             </h1>
             <p className="t-lead measure mt-6">
-              Para orçamento de receita, o mais rápido é o WhatsApp. Para o
-              resto, o formulário abaixo chega direto na nossa equipe.
+              Para orçamento de receita, o WhatsApp é mais rápido. Para outros
+              assuntos, use o formulário abaixo.
             </p>
           </Reveal>
         </div>

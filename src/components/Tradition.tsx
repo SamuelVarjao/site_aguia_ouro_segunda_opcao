@@ -25,21 +25,20 @@ export default function Tradition() {
           </Reveal>
 
           <Reveal delay={120}>
-            <h2 className="t-h2 measure">Cuidado que atravessa gerações</h2>
+            <h2 className="t-h2 measure">A mesma farmácia desde 1988</h2>
 
             <p className="t-lead measure mt-6">
               A Farmácia Águia de Ouro foi fundada em fevereiro de 1988, em São
-              Miguel Paulista, por Antônio Cesar — paranaense que trabalhava em
-              farmácia desde a adolescência e chegou a São Paulo já com
-              experiência de balcão. Abriu a farmácia aos 29 anos, com um
-              farmacêutico como único colaborador, para fazer as coisas do seu
-              próprio jeito, com qualidade e autenticidade.
+              Miguel Paulista, por Antônio Cesar. Paranaense, ele trabalhava em
+              farmácia desde a adolescência e chegou a São Paulo com experiência
+              de balcão. Abriu a farmácia aos 29 anos, com um farmacêutico como
+              único funcionário, porque queria trabalhar do jeito dele.
             </p>
 
             <p className="t-body measure mt-5 text-navy-900/80">
-              Passados trinta e oito anos, a farmácia segue com o mesmo sonho:
-              manipular com excelência. O bairro é o mesmo, e boa parte de quem
-              chega hoje veio porque a mãe ou a avó já comprava aqui.
+              Trinta e oito anos depois, continuamos no mesmo bairro. Muita
+              gente que chega hoje conheceu a farmácia porque a mãe ou a avó já
+              comprava aqui.
             </p>
 
             <a
@@ -48,7 +47,7 @@ export default function Tradition() {
               data-ga-origem="tradicao-historia"
               className="btn btn-ghost-navy mt-8"
             >
-              Ler história completa
+              Ler a história completa
             </a>
           </Reveal>
         </div>

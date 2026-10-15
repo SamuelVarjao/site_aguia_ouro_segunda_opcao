@@ -5,19 +5,19 @@ import { WHATSAPP_LINKS, storeUrl } from "@/lib/site";
 const STEPS = [
   {
     title: "Fotografe a receita",
-    text: "Uma foto legível já resolve, não precisa de scanner. Se a prescrição tiver mais de uma página, envie todas.",
+    text: "Basta uma foto legível, não precisa de scanner. Se a receita tiver mais de uma página, mande todas.",
   },
   {
     title: "Envie pelo WhatsApp",
-    text: "A conversa é direta com a equipe do balcão, de segunda a sábado, no horário da farmácia.",
+    text: "Quem responde é a equipe do balcão, de segunda a sábado, no horário da farmácia.",
   },
   {
     title: "Receba o orçamento",
-    text: "Informamos o valor, o prazo de preparo e as formas de pagamento antes de qualquer coisa ir para o laboratório.",
+    text: "Você recebe o valor, o prazo de preparo e as formas de pagamento antes de a fórmula ir para o laboratório.",
   },
   {
     title: "Retire ou receba em casa",
-    text: "Entregamos em São Paulo. Você acompanha o preparo pela mesma conversa.",
+    text: "Entregamos em São Paulo. O andamento do preparo você acompanha pela mesma conversa.",
   },
 ];
 
@@ -75,8 +75,8 @@ export default function HowToOrder() {
 
           <div className="mt-8 flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
             <p className="t-lead measure">
-              Não tem receita? Suplementos, vitaminas e dermocosméticos você
-              compra direto na loja, sem precisar conversar com ninguém.
+              Sem receita? Suplementos, vitaminas e dermocosméticos você
+              compra direto na nossa loja online.
             </p>
             <CtaLink
               href={storeUrl("sem-receita")}

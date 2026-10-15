@@ -27,27 +27,27 @@ const jsonLd = {
 const ESPECIALIDADES = [
   {
     title: "Dermatológica",
-    text: "Cremes, séruns e loções com a concentração de ativos que a sua pele e a sua receita pedem — nada de dose padrão de prateleira.",
+    text: "Cremes, séruns e loções com a concentração de ativos indicada na sua receita, em vez da dose padrão dos produtos de prateleira.",
   },
   {
     title: "Hormonal e ginecológica",
-    text: "Reposição e fórmulas ginecológicas manipuladas conforme a prescrição, na forma farmacêutica indicada pelo médico.",
+    text: "Reposição hormonal e fórmulas ginecológicas manipuladas conforme a prescrição, na forma farmacêutica que o médico indicar.",
   },
   {
     title: "Emagrecimento",
-    text: "Fórmulas para acompanhamento de emagrecimento, sempre sob prescrição — não vendemos nada dessa linha sem receita.",
+    text: "Fórmulas para tratamento de emagrecimento. Essa linha só é manipulada com receita.",
   },
   {
     title: "Ortomolecular",
-    text: "Suplementação personalizada, com as dosagens e combinações que a sua prescrição determina.",
+    text: "Suplementos manipulados com as doses e combinações definidas na sua prescrição.",
   },
   {
     title: "Capilar",
-    text: "Loções e tônicos para tratamento capilar manipulados sob medida, como o minoxidil em concentrações específicas.",
+    text: "Loções e tônicos capilares feitos sob medida, como o minoxidil na concentração que o médico receitou.",
   },
   {
     title: "Pediátrica",
-    text: "Formas farmacêuticas e sabores adequados para crianças, sempre a partir da receita do pediatra.",
+    text: "Formas farmacêuticas e sabores adequados para crianças, sempre com receita do pediatra.",
   },
 ] as const;
 
@@ -64,12 +64,11 @@ export default function ServicosPage() {
           <Reveal>
             <p className="eyebrow">Serviços</p>
             <h1 className="t-h1 measure mt-5 text-navy-900">
-              Cada fórmula, manipulada para uma pessoa só.
+              Manipulação sob prescrição, em seis especialidades.
             </h1>
             <p className="t-lead measure mt-6">
-              Trabalhamos com prescrição médica, em seis especialidades. Se a
-              sua receita for de algo que não fazemos, avisamos antes de
-              qualquer coisa — nunca depois.
+              Se a sua receita pedir algo que não fazemos, avisamos já no
+              orçamento.
             </p>
           </Reveal>
         </div>
@@ -95,9 +94,8 @@ export default function ServicosPage() {
           <Reveal>
             <p className="t-small measure mt-12 border-t border-border-subtle pt-6 text-navy-900/70">
               Não manipulamos fórmulas injetáveis, homeopáticas, veterinárias
-              ou de baixo índice terapêutico. Se tiver dúvida se a sua receita
-              se encaixa, mande uma foto pelo WhatsApp antes — confirmamos sem
-              compromisso.
+              ou de baixo índice terapêutico. Na dúvida, mande uma foto da
+              receita pelo WhatsApp e a gente confirma, sem compromisso.
             </p>
           </Reveal>
         </div>
@@ -113,9 +111,8 @@ export default function ServicosPage() {
             />
             <h3 className="t-h3 mt-4">Atendimento farmacêutico</h3>
             <p className="t-body mt-2 text-navy-900/80">
-              Cada receita é conferida por uma farmacêutica antes de ir para o
-              laboratório — dosagem, compatibilidade entre ativos, forma
-              farmacêutica.
+              Uma farmacêutica confere cada receita antes de ela seguir para o
+              laboratório.
             </p>
           </Reveal>
 
@@ -127,8 +124,9 @@ export default function ServicosPage() {
             />
             <h3 className="t-h3 mt-4">Entrega em São Paulo</h3>
             <p className="t-body mt-2 text-navy-900/80">
-              Entregamos na cidade de São Paulo. Você acompanha o preparo pela
-              mesma conversa de WhatsApp da sua receita.
+              Entregamos na cidade de São Paulo. O andamento do preparo você
+              acompanha pela mesma conversa do WhatsApp em que mandou a
+              receita.
             </p>
           </Reveal>
 
@@ -140,8 +138,8 @@ export default function ServicosPage() {
             />
             <h3 className="t-h3 mt-4">Atendimento particular</h3>
             <p className="t-body mt-2 text-navy-900/80">
-              Não atendemos convênio ou plano de saúde — o atendimento é
-              particular, com orçamento informado antes de qualquer preparo.
+              Não aceitamos convênio nem plano de saúde. O atendimento é
+              particular, e você recebe o orçamento antes do preparo.
             </p>
           </Reveal>
         </div>
@@ -152,8 +150,7 @@ export default function ServicosPage() {
           <Reveal>
             <h2 className="t-h2 measure">Tem uma receita em mãos?</h2>
             <p className="t-lead measure mt-4">
-              Mande uma foto pelo WhatsApp e receba o orçamento antes de
-              qualquer coisa ir para o laboratório.
+              Mande uma foto pelo WhatsApp e a gente passa o orçamento.
             </p>
             <CtaLink
               href={WHATSAPP_LINKS.servicos}

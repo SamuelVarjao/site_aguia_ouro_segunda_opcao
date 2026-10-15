@@ -63,11 +63,12 @@ export default function Newsletter() {
         <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
           <Reveal>
             <h2 className="t-h2 measure">
-              Cuidados e novidades direto no seu e-mail
+              Receba nossos e-mails
             </h2>
             <p className="t-lead measure mt-4 text-white/70">
-              De vez em quando, mandamos dicas de saúde, cuidados com a pele e
-              novidades da farmácia. Sem spam, e você cancela quando quiser.
+              De vez em quando mandamos dicas de saúde e de cuidados com a
+              pele, além de novidades da farmácia. Dá para cancelar quando
+              quiser.
             </p>
           </Reveal>
 
@@ -77,7 +78,7 @@ export default function Newsletter() {
                 role="status"
                 className="t-body rounded-card border border-white/20 bg-white/10 p-6"
               >
-                Cadastro feito! Em breve você recebe nosso primeiro e-mail.
+                Pronto, cadastro feito. Logo você recebe nosso primeiro e-mail.
               </p>
             ) : (
               <form

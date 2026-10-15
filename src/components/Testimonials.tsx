@@ -58,7 +58,7 @@ export default function Testimonials() {
           <div>
             <h2 className="t-h2 measure">O que dizem os clientes</h2>
             <p className="t-lead measure mt-4">
-              Avaliações reais, direto do perfil da farmácia no Google.
+              Algumas avaliações deixadas no nosso perfil do Google.
             </p>
           </div>
 

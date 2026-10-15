@@ -7,17 +7,17 @@ const POINTS = [
   {
     Icon: ClipboardCheck,
     title: "Conferência farmacêutica",
-    text: "Nenhuma fórmula é manipulada sem passar pela análise de um farmacêutico. É o que a lei exige e o que fazemos há trinta e oito anos.",
+    text: "Toda fórmula passa pela análise de um farmacêutico antes de ser manipulada. A lei exige, e fazemos assim desde 1988.",
   },
   {
     Icon: FileCheck2,
     title: "Matéria-prima com laudo",
-    text: "Trabalhamos com fornecedores que enviam laudo de análise por lote. Ativos com selo de autenticidade, como o Verisol, chegam lacrados e são conferidos na entrada.",
+    text: "Nossos fornecedores mandam laudo de análise de cada lote. Ativos com selo de autenticidade, como o Verisol, chegam lacrados e são conferidos no recebimento.",
   },
   {
     Icon: Scale,
     title: "Registro de cada etapa",
-    text: "Pesagem em balança calibrada, tudo anotado na ordem de manipulação. Qualquer fórmula que saiu daqui pode ser rastreada depois.",
+    text: "As pesagens são feitas em balança calibrada e anotadas na ordem de manipulação. Assim dá para rastrear qualquer fórmula que saiu daqui.",
   },
 ];
 
@@ -33,10 +33,10 @@ export default function Authority() {
               </h2>
 
               <p className="t-lead measure mt-6">
-                Antes de qualquer coisa ser pesada, a prescrição é conferida
-                pela nossa farmacêutica responsável — dosagem, compatibilidade
-                entre ativos, forma farmacêutica. Só depois disso a ordem de
-                manipulação vai para o laboratório.
+                Primeiro, nossa farmacêutica responsável confere a prescrição:
+                a dosagem, se os ativos podem ser combinados e se a forma
+                farmacêutica é a adequada. Só então a ordem de manipulação
+                segue para o laboratório.
               </p>
             </Reveal>
 
@@ -67,7 +67,7 @@ export default function Authority() {
 
             <Reveal>
               <p className="t-closing mt-12 border-t border-border-subtle pt-8">
-                É um processo lento de propósito.
+                Leva mais tempo, mas não pulamos nenhuma dessas etapas.
               </p>
 
               <a
@@ -76,7 +76,7 @@ export default function Authority() {
                 data-ga-origem="autoridade-saber-mais"
                 className="btn btn-ghost-navy mt-8"
               >
-                Saber mais
+                Conheça a farmácia
               </a>
             </Reveal>
           </div>
