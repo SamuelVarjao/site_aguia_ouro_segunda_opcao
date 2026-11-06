@@ -111,8 +111,9 @@ export default function ServicosPage() {
             />
             <h3 className="t-h3 mt-4">Atendimento farmacêutico</h3>
             <p className="t-body mt-2 text-navy-900/80">
-              Uma farmacêutica confere cada receita antes de ela seguir para o
-              laboratório.
+              Uma farmacêutica confere cada receita antes e depois da
+              manipulação. Se algo precisar de ajuste, conversamos com o
+              prescritor.
             </p>
           </Reveal>
 

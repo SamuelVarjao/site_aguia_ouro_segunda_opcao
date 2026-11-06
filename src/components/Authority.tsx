@@ -6,18 +6,18 @@ import { withBase } from "@/lib/paths";
 const POINTS = [
   {
     Icon: ClipboardCheck,
-    title: "Conferência farmacêutica",
-    text: "Toda fórmula passa pela análise de um farmacêutico antes de ser manipulada. A lei exige, e fazemos assim desde 1988.",
+    title: "Conferência antes do preparo",
+    text: "Antes de qualquer procedimento, são conferidas as doses, a compatibilidade dos ativos e a forma farmacêutica. Se houver alguma necessidade, conversamos com o prescritor para as devidas correções. Nem sempre o médico tem tudo na ponta da língua.",
   },
   {
     Icon: FileCheck2,
     title: "Matéria-prima com laudo",
-    text: "Nossos fornecedores mandam laudo de análise de cada lote. Ativos com selo de autenticidade, como o Verisol, chegam lacrados e são conferidos no recebimento.",
+    text: "Trabalhamos apenas com fornecedores qualificados, seguindo rigorosamente as normas da ANVISA. Cada lote chega com laudo de análise, e ativos com selo de autenticidade, como o Verisol, vêm lacrados e são conferidos no recebimento.",
   },
   {
     Icon: Scale,
-    title: "Registro de cada etapa",
-    text: "As pesagens são feitas em balança calibrada e anotadas na ordem de manipulação. Assim dá para rastrear qualquer fórmula que saiu daqui.",
+    title: "Conferência depois do preparo",
+    text: "A pesagem é feita em balança calibrada e registrada na ordem de manipulação. Após pesada e manipulada, a prescrição é conferida de novo: doses, forma farmacêutica, interações e incompatibilidades.",
   },
 ];
 
@@ -29,19 +29,18 @@ export default function Authority() {
           <div>
             <Reveal>
               <h2 className="t-h2 measure">
-                O que acontece depois que a receita chega
+                Onde sua fórmula é preparada
               </h2>
 
               <p className="t-lead measure mt-6">
-                Primeiro, nossa farmacêutica responsável confere a prescrição:
-                a dosagem, se os ativos podem ser combinados e se a forma
-                farmacêutica é a adequada. Só então a ordem de manipulação
-                segue para o laboratório.
+                Toda receita passa duas vezes pela nossa farmacêutica
+                responsável: antes de ir para o laboratório e depois que a
+                fórmula fica pronta.
               </p>
             </Reveal>
 
-            {/* Sem numeração: não é uma sequência, são características
-                simultâneas do trabalho. */}
+            {/* Sem numeração: a sequência que o cliente executa é a do
+                "Como enviar sua receita"; aqui são etapas internas. */}
             <ul className="mt-12 flex flex-col gap-8">
               {POINTS.map(({ Icon, title, text }, i) => (
                 <Reveal

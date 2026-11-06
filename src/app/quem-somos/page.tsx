@@ -45,10 +45,11 @@ const FARMACEUTICAS = [
     name: "Dra. Midiã Varjão",
     role: "Farmacêutica responsável",
     crf: "CRF-SP 44084",
+    // Mais recente primeiro, só com o ano — mesmo formato para as duas.
     formacao: [
-      "Farmácia Clínica — Universidade Mogi das Cruzes — concluído em novembro de 2017",
-      "Manipulação Magistral Alopática — Instituto Racine — concluído em novembro de 2010",
-      "Farmácia Industrial — Universidade Brás Cubas (Mogi das Cruzes) — concluído em julho de 2007",
+      { curso: "Farmácia Clínica", local: "Universidade de Mogi das Cruzes", ano: "2017" },
+      { curso: "Manipulação Magistral Alopática", local: "Instituto Racine", ano: "2010" },
+      { curso: "Farmácia Industrial", local: "Universidade Brás Cubas", ano: "2007" },
     ],
   },
   {
@@ -56,9 +57,9 @@ const FARMACEUTICAS = [
     role: "Farmacêutica",
     crf: "CRF-SP 48533",
     formacao: [
-      "Graduação em Farmácia — 2009",
-      "Pós-graduação em Farmacologia Clínica e Farmacoterapia — 2014",
-      "Pós-graduação em Medicina Funcional Integrativa — 2026",
+      { curso: "Pós-graduação em Medicina Funcional Integrativa", local: null, ano: "2026" },
+      { curso: "Pós-graduação em Farmacologia Clínica e Farmacoterapia", local: null, ano: "2014" },
+      { curso: "Graduação em Farmácia", local: null, ano: "2009" },
     ],
   },
 ] as const;
@@ -157,16 +158,26 @@ export default function QuemSomosPage() {
               >
                 <h3 className="t-h3">{item.name}</h3>
                 <p className="t-small mt-1 text-navy-900/60">
-                  {item.role} — {item.crf}
+                  {item.role} · {item.crf}
                 </p>
-                <ul className="mt-5 flex flex-col gap-3">
-                  {item.formacao.map((linha) => (
-                    <li key={linha} className="flex gap-3">
+                <h4 className="t-small mt-6 font-bold text-navy-900">
+                  Formação
+                </h4>
+                <ul className="mt-3 flex flex-col gap-4">
+                  {item.formacao.map((f) => (
+                    <li key={f.curso} className="flex gap-3">
                       <GraduationCap
                         className="mt-0.5 h-5 w-5 shrink-0 text-gold-600"
                         aria-hidden="true"
                       />
-                      <span className="t-small text-navy-900/80">{linha}</span>
+                      <span className="t-small flex flex-col">
+                        <span className="font-bold text-navy-900">
+                          {f.curso}
+                        </span>
+                        <span className="text-navy-900/70">
+                          {f.local ? `${f.local} · ${f.ano}` : f.ano}
+                        </span>
+                      </span>
                     </li>
                   ))}
                 </ul>
